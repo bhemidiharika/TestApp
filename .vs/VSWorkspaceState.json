@@ -1,7 +1,15 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\bin",
+    "\\bin\\Debug",
+    "\\Clients",
+    "\\Models",
+    "\\Pages",
+    "\\Properties",
+    "\\Shared",
+    "\\Shared\\Components",
+    "\\wwwroot"
   ],
-  "SelectedNode": "\\C:\\Users\\harik\\Source\\Repos\\TestApp",
   "PreviewInSolutionExplorer": false
 }
