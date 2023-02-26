@@ -1,0 +1,41 @@
+@using TestApp.Models;
+@page "/nasa-apod"
+
+@using TestApp.Clients;
+@inject NasaClient NasaClient;
+@using TestApp.Shared.Components;
+<PageTitle>Nasa API Page</PageTitle>
+
+
+<!-- <input placeholder="enter our tasks" @bind="newTodo"/>
+<button @onclick="Add">Add Task</button> -->
+
+
+<Header title="@nasaResponse.title" subTitle="@nasaResponse.date" description="@nasaResponse.explanation"/>
+<br />
+<NasaImageSection copyright="@nasaResponse.copyright" imgUrl="@nasaResponse.url" hdUrl="@nasaResponse.hdurl"/>
+
+<input placeholder="YYYY-MM-DD" @bind="date"/>
+<button @onclick="AddDateFilter">Submit</button>
+
+@code {
+
+
+    private NasaResponse? nasaResponse = null;
+   
+    public string? date;
+    
+    async Task AddDateFilter(){
+        
+         nasaResponse = await NasaClient.getNasa(date);
+         date = string.Empty;
+    }
+    
+    protected override async Task OnInitializedAsync(){
+
+        nasaResponse = await NasaClient.getNasa(null);
+
+    }
+
+
+}
